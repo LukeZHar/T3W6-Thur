@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReadOnlyPost from './ReadOnlyPost';
 import EditablePost from './EditablePost';
+import { isEditable } from '@testing-library/user-event/dist/utils';
 
 export default class PostContainer extends Component {
     constructor(){
@@ -16,9 +17,11 @@ export default class PostContainer extends Component {
     }
 
     toggleEditMode = () => {
-        this.setState({
-            isEditing: !this.state.isEditing
-        })
+        this.setState(
+            {
+                isEditing: !this.state.isEditing
+            }
+        )
     }
 
     render() {

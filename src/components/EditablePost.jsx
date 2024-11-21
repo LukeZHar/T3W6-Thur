@@ -3,6 +3,30 @@ import React, { Component } from "react";
 export default class EditablePost extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            author: props.author,
+            location: props.location,
+            content: props.content
+        }
+    }
+
+    handleAuthorChange = (event) => {
+        this.setState({
+            author: event.target.value
+        })
+    }
+
+    handleLocationChange = (event) => {
+        this.setState({
+            location: event.target.value
+        })
+    }
+
+    handleContentChange = (event) => {
+        this.setState({
+            content: event.target.value
+        })
     }
 
     render() {
@@ -10,15 +34,15 @@ export default class EditablePost extends Component {
             <div className="EditablePost">
                 {/* {Editable author field} */}
                 <label htmlFor="authorField">Author: </label>
-                <input type="text" name="authorField" id="authorField" value={this.props.author} />
+                <input type="text" name="authorField" id="authorField" value={this.state.author} onChange={this.handleAuthorChange}/>
                 
                 {/* {Editable location field} */}
                 <label htmlFor="locationField">Location: </label>
-                <input type="text" name="locationField" id="locationField" value={this.props.location} />
+                <input type="text" name="locationField" id="locationField" value={this.state.location} onChange={this.handleLocationChange}/>
                 
                 {/* {Editable content field} */}
                 <label htmlFor="contentField">Content: </label>
-                <input type="text" name="contentField" id="contentField" value={this.props.content} />
+                <input type="text" name="contentField" id="contentField" value={this.state.content} onChange={this.handleContentChange}/>
             </div>
         )
     }
