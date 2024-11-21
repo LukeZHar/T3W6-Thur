@@ -43,6 +43,12 @@ export default class EditablePost extends Component {
                 {/* {Editable content field} */}
                 <label htmlFor="contentField">Content: </label>
                 <input type="text" name="contentField" id="contentField" value={this.state.content} onChange={this.handleContentChange}/>
+
+                <button onClick={
+                    () => {
+                        this.props.updateData(this.state.author, this.state.location, this.state.content)
+                    }
+                }>Submit Data</button>
             </div>
         )
     }
